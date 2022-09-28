@@ -1,3 +1,6 @@
+using EFDataAccessLibrary.DataAccess;
+using Microsoft.EntityFrameworkCore;
+
 namespace EntityFrameworkWebProject
 {
     public class Program
@@ -8,6 +11,10 @@ namespace EntityFrameworkWebProject
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddDbContext<PeopleContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+            });
 
             var app = builder.Build();
 
