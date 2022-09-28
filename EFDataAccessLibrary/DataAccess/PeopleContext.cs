@@ -10,5 +10,6 @@ namespace EFDataAccessLibrary.DataAccess
     public class PeopleContext : DbContext
     {
         public PeopleContext(DbContextOptions options) : base(options) { }
+
     }
 }
