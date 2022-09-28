@@ -8,6 +8,7 @@ namespace EFDataAccessLibrary.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+
             migrationBuilder.AlterColumn<string>(
                 name: "LastName",
                 table: "People",
