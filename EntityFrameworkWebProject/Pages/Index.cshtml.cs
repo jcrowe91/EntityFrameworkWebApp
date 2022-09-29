@@ -2,6 +2,7 @@
 using EFDataAccessLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
 namespace EntityFrameworkWebProject.Pages
@@ -19,7 +20,12 @@ namespace EntityFrameworkWebProject.Pages
 
         public void OnGet()
         {
+            LoadSampleData();
 
+            var people = _db.People
+                .Include(a => a.Addresses)
+                .Include(e => e.EmailAddresses)
+                .ToList();
         }
 
         private void LoadSampleData()
